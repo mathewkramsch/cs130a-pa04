@@ -2,7 +2,7 @@
 
 CXX=g++
 FLAGS=-std=c++11 -Wall -Wextra -Werror
-DEPENDENCIES= src/main.o src/BOARD/board.o
+DEPENDENCIES= src/main.o src/utility.o src/BOARD/board.o
 
 all: make_obj_dir snl cleanup
 

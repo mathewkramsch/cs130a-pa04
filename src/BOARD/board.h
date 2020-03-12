@@ -10,15 +10,17 @@ class board {
 	public:
 		board(int size, std::vector<std::pair<int,int>> l, std::vector<std::pair<int,int>> s):
 			boardSize(size), ladders(l), snakes(s) {}
-		int getNumMoves();
 		std::string getPath();
-
-		std::string printVectors();  // prints vectors for debugging
+		std::string printVectors();  // for debugging
 
 	private:
 		int boardSize;
 		std::vector<std::pair<int,int>> ladders;
 		std::vector<std::pair<int,int>> snakes;
+
+		std::vector<std::pair<int,int>> getLaddersToTake();  // helper functions
+		std::string getPathToLadder(int &current, std::pair<int,int> ladder, std::vector<int> snakeHeadsInWay);
+		std::string getPathToEnd(int &current);
 };
 
 #endif
