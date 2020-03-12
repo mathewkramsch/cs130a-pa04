@@ -19,8 +19,9 @@ class board {
 		std::vector<std::pair<int,int>> snakes;
 
 		std::vector<std::pair<int,int>> getLaddersToTake();  // helper functions
-		std::string getPathToLadder(int &current, std::pair<int,int> ladder, std::vector<int> snakeHeadsInWay);
+		std::string getPathToLadder(int &current, std::pair<int,int> ladder);
 		std::string getPathToEnd(int &current);
+		int getRoll(int current);
 };
 
 #endif

@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
 	ss >> totalNumberOfBoards;
 
 	while (currentBoardNum <= totalNumberOfBoards) {
-		string boardMssg="Board Game #:";
+		string boardMssg="Board Game #";
 		ladders.clear();
 		snakes.clear();
 
@@ -47,7 +47,7 @@ int main(int argc, char *argv[]) {
 		pathTaken = b.getPath();
 		leastNumMoves = getNumMoves(pathTaken);
 
-		cout << boardMssg << currentBoardNum++ << endl;
+		cout << boardMssg << currentBoardNum++ << ":" << endl;
 		cout << leastNumMoves << endl;
 		cout << pathTaken << endl;
 	}
