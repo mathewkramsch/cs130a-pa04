@@ -1,7 +1,6 @@
 // main.cpp
 
 #include "BOARD/board.h"
-#include "utility.h"
 #include <sstream>
 #include <iostream>
 using namespace std;
@@ -45,12 +44,11 @@ int main(int argc, char *argv[]) {
 
 		board b(boardSize,ladders,snakes);
 		pathTaken = b.getPath();
-		leastNumMoves = getNumMoves(pathTaken);
+		leastNumMoves = b.getNumMoves(pathTaken);
 
 		cout << boardMssg << currentBoardNum++ << ":" << endl;
 		cout << leastNumMoves << endl;
 		cout << pathTaken << endl;
-	}
-	
+	}	
 	return 0;
 }

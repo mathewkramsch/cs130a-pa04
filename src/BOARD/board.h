@@ -11,6 +11,7 @@ class board {
 		board(int size, std::vector<std::pair<int,int>> l, std::vector<std::pair<int,int>> s):
 			boardSize(size), ladders(l), snakes(s) {}
 		std::string getPath();
+		int getNumMoves(std::string pathTaken);
 		std::string printVectors();  // for debugging
 
 	private:
@@ -22,6 +23,7 @@ class board {
 		std::string getPathToLadder(int &current, std::pair<int,int> ladder);
 		std::string getPathToEnd(int &current);
 		int getRoll(int current);
+		int getNumMoves(int start, int end);
 };
 
 #endif
