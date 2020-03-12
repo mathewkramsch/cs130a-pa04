@@ -3,7 +3,7 @@ Mathew Kramsch
 
 > Programming Assignment #4 for CS130a: Snakes and Ladders game
 
-##### Sample Input:
+#### Sample Input:
 ./snl "5  
 8 1 1  
 8 11  
@@ -21,7 +21,7 @@ Mathew Kramsch
 2 131 119 3555 1563 2013  
 140 117 3402 234"  
 
-##### Input
+#### Input
 - The first line is the number of board games which need to be solved. 
 - The next 3 lines contain more information about the boards, 3 lines per board.
 - The first of the 3 lines will have three numbers, N, L, S
@@ -32,7 +32,7 @@ Mathew Kramsch
 - The third line will have 2S numbers
 	- each consecutive pair c, d represents the head and tail of a snake respectively
 
-##### Output
+#### Output
 - Outputs 3 lines per board
 - The first line is the number of the board game
 - The second line is the least number of moves required for solving the current board
