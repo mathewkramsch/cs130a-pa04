@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
 	ss >> totalNumberOfBoards;
 
 	while (currentBoardNum <= totalNumberOfBoards) {
-		string boardMssg="Board Game #";
+		string boardMssg="Board Game #:";
 		ladders.clear();
 		snakes.clear();
 
