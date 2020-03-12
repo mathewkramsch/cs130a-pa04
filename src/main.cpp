@@ -14,7 +14,6 @@ int main(int argc, char *argv[]) {
 	int leastNumMoves;  // least number of moves required to solve current board
 	string pathTaken;  // path taken to solve board, ladders= '+', snakes= '-'
 
-	char newLine;  // to parse out the new line ('\n') after each input command
 	int boardSize, numLadders, numSnakes;
 	int ladderStart, ladderEnd;  // location of start/end of ladder
 	int snakeHead, snakeTail;
@@ -24,27 +23,24 @@ int main(int argc, char *argv[]) {
 
 	stringstream ss(argv[1]);
 	ss >> totalNumberOfBoards;
-	ss >> newLine;
 
-	while (currentBoardNum < totalNumberOfBoards) {
+	while (currentBoardNum <= totalNumberOfBoards) {
 		string boardMssg="Board Game #";
 		ladders.clear();
 		snakes.clear();
 
-		ss >> boardSize >> numLadders >> numSnakes >> newLine;  // 1st line of input
+		ss >> boardSize >> numLadders >> numSnakes;  // 1st line of input
 
 		for (int i=0; i<numLadders; i++) {  // 2nd line
 			ss >> ladderStart >> ladderEnd;
 			p = make_pair(ladderStart,ladderEnd);
 			ladders.push_back(p);
 		}
-		ss >> newLine;
 		for (int i=0; i<numSnakes; i++) {  // 3rd line 
 			ss >> snakeHead >> snakeTail;
 			p = make_pair(snakeHead,snakeTail);
 			snakes.push_back(p);
 		}
-		ss >> newLine;
 
 		board b(boardSize,ladders,snakes);
 		leastNumMoves = b.getNumMoves();

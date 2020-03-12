@@ -12,6 +12,6 @@ snl: ${DEPENDENCIES}
 make_obj_dir:
 	mkdir -p obj
 cleanup:
-	mv src/*o src -t obj
+	mv src/*o src/BOARD/*.o -t obj
 clean:
-	/bin/rm -f -r obj src/*o snl vgcore*
+	/bin/rm -f -r obj src/*.o src/BOARD/*.o snl vgcore*
