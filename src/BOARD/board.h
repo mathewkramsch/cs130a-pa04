@@ -13,6 +13,8 @@ class board {
 		int getNumMoves();
 		std::string getPath();
 
+		std::string printVectors();  // prints vectors for debugging
+
 	private:
 		int boardSize;
 		std::vector<std::pair<int,int>> ladders;
