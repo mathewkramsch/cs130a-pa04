@@ -22,7 +22,7 @@ class board {
 		std::vector<std::pair<int,int>> getLaddersToTake();  // helper functions
 		std::string getPathToLadder(int &current, std::pair<int,int> ladder);
 		std::string getPathToEnd(int &current);
-		int getRoll(int current);
+		int getRoll(int current, int collideOkay);
 		int getNumMoves(int start, int end);
 };
 
