@@ -1,4 +1,4 @@
-# Makefile
+# makefile
 
 CXX=g++
 FLAGS=-std=c++11 -Wall -Wextra -Werror
