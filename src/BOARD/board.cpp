@@ -11,7 +11,8 @@ string board::getPath() {
 	vector<pair<int,int>> laddersToTake = getLaddersToTake();
 
 	for (int i=0; i<laddersToTake.size(); i++) path += getPathToLadder(current, laddersToTake[i]);
-	path += getPathToEnd(current);
+	if (current < boardSize*boardSize) path += getPathToEnd(current);
+	else { path = path.substr(0,path.size()-1); }
 	return path;
 }
 
@@ -113,7 +114,6 @@ string board::getPathToEnd(int &current) {
 // PRECONDITION: current is the current space on the board
 // POSTCONDITION: returns the path to the end of the board (without ladders)
 	string path = "";
-	if (current == boardSize*boardSize) return path;
 	if (boardSize*boardSize-current <= 6) return to_string(boardSize*boardSize);
 	// current += getRoll(current);
 	current += getRoll(current);
