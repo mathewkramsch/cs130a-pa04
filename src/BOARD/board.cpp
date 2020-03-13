@@ -52,11 +52,9 @@ vector<pair<int,int>> board::getLaddersToTake() {
 		if (aSnakeWasTaken) continue;
 		takeLadder = true;
 
-		// CASE 1: small ladder
-		if (ladders[i].first-ladders[i].second <= 6) {  // if ladder's size <=6
-			if (getNumMoves(current,ladders[i].first) >= getNumMoves(current,ladders[i].second))
-				takeLadder = false;  // dont take if can get to end of ladder w/o ladder faster/same
-		}
+		// CASE 1: small ladder, might be faster to not take it
+		if (getNumMoves(current,ladders[i].first) >= getNumMoves(current,ladders[i].second)) takeLadder = false;  
+			// dont take if can get to end of ladder w/o ladder faster/same
 
 		// CASE 2: ladder is completely inside previous ladder
 		if (ladders[i].second < current) takeLadder = false;
