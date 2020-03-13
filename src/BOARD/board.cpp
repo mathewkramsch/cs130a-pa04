@@ -2,7 +2,6 @@
 
 #include "board.h"
 #include <algorithm>  // for std::sort
-#include <iostream>  // DELETE
 using namespace std;
 
 string board::getPath() {
@@ -44,10 +43,6 @@ vector<pair<int,int>> board::getLaddersToTake() {
 	if (ladders.empty()) return ladders;
 	sort(ladders.begin(), ladders.end(), compareLadders);  // sort ladders from smallest to largest
 
-	// cout << "LADDERS: ";
-	// for (int i=0; i<ladders.size(); i++) cout << "(" << ladders[i].first << "," << ladders[i].second << ") ";
-	// cout << endl;
-
 	vector<pair<int,int>> laddersToTake;
 	bool takeLadder;
 	int current = 1;  // current space
@@ -85,12 +80,9 @@ vector<pair<int,int>> board::getLaddersToTake() {
 			for (int j=0; j<snakes.size(); j++) {  // find snake whos head is after first ladder and tail is before second ladder
 				if (snakes[j].first >= ladders[i].second && snakes[j].second <= ladders[i+1].first) {  // if in doubt take snake
 					int numMovesSnake=0;  // # moves to end of next ladder using snake and taking both ladders
-					// cout << "current: " << current << endl;
-					// cout << "ladders[i].first: " << ladders[i].first << endl;
 					numMovesSnake = getNumMoves(current, ladders[i].first) 
 						+ getNumMoves(ladders[i].second, snakes[j].first)
 						+ getNumMoves(snakes[j].second, ladders[i+1].first);
-					// cout << "numMovesSnake: " << numMovesSnake << endl;
 					if (numMovesSnake <= numMovesCurrent && numMovesSnake <= numMovesNext) {
 						if (numMovesBestSnake==-1 || numMovesSnake < numMovesBestSnake) {
 							numMovesBestSnake = numMovesSnake;
@@ -101,7 +93,6 @@ vector<pair<int,int>> board::getLaddersToTake() {
 				}				
 			}
 			if (takeSnake) {  // if taking a snake is the way to go, add both ladders
-				// cout << "HERE" << endl;
 				laddersToTake.push_back(ladders[i]);
 				laddersToTake.push_back(snake);
 				laddersToTake.push_back(ladders[i+1]);
@@ -119,9 +110,6 @@ vector<pair<int,int>> board::getLaddersToTake() {
 			current = ladders[i].second;
 		}
 	}
-	// cout << "LADDERSTOTAKE: ";
-	// for (int i=0; i<laddersToTake.size(); i++) cout << "(" << laddersToTake[i].first << "," << laddersToTake[i].second << ") ";
-	// cout << endl;
 	return laddersToTake;
 }
 
